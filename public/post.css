@@ -160,9 +160,3 @@ code {
 	padding-left: 10px;
 	padding-right: 10px;
 }
-
-@media screen and (min-width: 1024px){
-	code {
-		white-space:nowrap;
-	}
-}
