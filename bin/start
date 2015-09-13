@@ -1,0 +1,55 @@
+#!/usr/bin/env node
+var app = require('../app');
+var fs = require('fs');
+var marked = require('marked');
+var hbs = require('handlebars');
+var Entities = require('html-entities').AllHtmlEntities;
+var entities = new Entities();
+
+app.set('port', process.env.PORT || 3000);
+
+var indexTemplate = hbs.compile(fs.readFileSync(__dirname + '/../templates/index.handlebars', 'utf8'));
+var postTemplate = hbs.compile(fs.readFileSync(__dirname + '/../templates/post.handlebars', 'utf8'));
+
+var data = { posts: [] };
+var posts = data.posts;
+
+fs.readdir(__dirname + '/../posts/',function(err,files){
+  if(err) throw err;
+  files.forEach(function(file) {
+  	if (file[0] === ".") return;
+
+  	var lines = fs.readFileSync(__dirname + '/../posts/' + file, 'utf8').split('\n');
+
+  	var post = {};
+  	post.slug = file.replace('.md', '');
+  	post.filename = __dirname + '/../posts/' + file;
+  	post.title = lines[0].trim();
+  	post.date = lines[1].trim();
+  	post.description = marked(lines[2].trim() + '..');
+  	post.content = marked(lines.slice(2, lines.length).join('\n'));
+  	posts.push(post);
+
+	  var postHtml = postTemplate(post);
+	  fs.writeFileSync(__dirname + '/../public/' + post.slug + '.html', entities.decode(postHtml), 'utf8');
+  });
+
+  data.posts = posts = posts.sort(function(a,b){
+  	var aParts = a.date.split("/");
+		var aDate = new Date(parseInt(aParts[2], 10),
+		                  parseInt(aParts[1], 10) - 1,
+		                  parseInt(aParts[0], 10));
+
+  	var bParts = b.date.split("/");
+		var bDate = new Date(parseInt(bParts[2], 10),
+		                  parseInt(bParts[1], 10) - 1,
+		                  parseInt(bParts[0], 10));
+	  return new Date(bDate) - new Date(aDate);
+	});
+
+  var indexHtml = indexTemplate(data);
+  fs.writeFileSync(__dirname + '/../public/index.html', entities.decode(indexHtml), 'utf8');
+
+  var server = app.listen(app.get('port'), 'localhost', function() {});
+  console.log('Server listening on localhost with port', app.get('port'));
+});

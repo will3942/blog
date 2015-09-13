@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Will Evans</title>
+		<meta name="description" content="Not just another WordPress site." />
+		<meta name="keywords" content="will evans, willevans, will, evans" />
+		<meta name="author" content="metatags generator">
+		<meta name="robots" content="index, follow">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="/post.css">
+	</head>
+	<body>
+		<div id="header-container">
+			<div id="header">
+				<h1><a href="/">Will Evans</a></h1>
+				<h2>Not just another WordPress site.</h2>
+				<div id="navigation">
+					<a class="navigation-link" href="http://twitter.com/will3942">Twitter</a>
+					<a class="navigation-link" href="http://github.com/will3942">GitHub</a>
+					<a class="navigation-link" href="/resume.pdf">Resumé</a>
+				</div>
+				<div id="header-rule"></div>
+			</div>
+		</div>
+		<div id="container">
+			<div class="post">
+				<div class="post-header">
+					<h1 class="post-title"><a href="/{{slug}}">{{title}}</a></h1>
+					<h2 class="post-date">{{date}}</h2>
+					<div class="post-rule"></div>
+				</div>
+				<div class="post-content">
+					<p>{{content}}</p>
+				</div>
+			</div>
+		</div>
+	  <script>
+	    !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+	    arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+	    d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+	    insertBefore(d,q)}(window,document,'script','_gs');
+
+	    _gs('GSN-976668-V');
+	  </script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	  <script>
+			function loadGists() {
+			  var els = $('code[gist]'), gists = {}, code = [], stylesheets = [];
+			  // Get elements referencing a gist and build a gists hash referencing the elements that use it
+			  els.each(function(idx, rawEl) {
+			    var el = $(rawEl), gist = el.attr('gist');
+			    rawEl.gist = gist;
+			    rawEl.file = el.attr('file');
+			    gists[gist] = gists[gist] || { targets: [] };
+			    gists[gist].targets.push(el);
+			  });
+			  // Load the gists
+			  $.each(gists, function(name, data) {
+			    $.getJSON(name + '?callback=?', function(data) {
+			      var gist = gists[name];
+			      gist.data = data;
+			      // Only insert the stylesheets once
+			      if(stylesheets.indexOf(gist.data.stylesheet) < 0) {
+			        stylesheets.push(gist.data.stylesheet);
+			        $('head').append('<link rel="stylesheet" href="' + gist.data.stylesheet + '" />');
+			      }
+			      gist.files = $(gist.data.div).find('.gist-file');
+			      gist.outer = $(gist.data.div).first().html('');
+			      // Iterate elements refering to this gist
+			      $(gist.targets).each(function(idx, target) {
+			        var file = target.get(0).file;
+			        if(file) {
+			          var o = gist.outer.clone();
+			          var c = '<div class="gist-file">' + $(gist.files.get(gist.data.files.indexOf(file))).html() + '</div>';
+			          o.html(c);
+			          target.replaceWith(o);
+			        }
+			        else {
+			          target.replaceWith(gist.data.div);
+			        }
+			      });
+			    });
+			  });
+			}
+			// Load them on document ready
+			$(loadGists);
+		</script>
+	</body>
+</html>

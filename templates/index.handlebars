@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Will Evans</title>
+		<meta name="description" content="Not just another WordPress site." />
+		<meta name="keywords" content="will evans, willevans, will, evans" />
+		<meta name="author" content="metatags generator">
+		<meta name="robots" content="index, follow">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="/main.css">
+	</head>
+	<body>
+		<div id="header-container">
+			<div id="header">
+				<h1><a href="/">Will Evans</a></h1>
+				<h2>Not just another WordPress site.</h2>
+				<div id="navigation">
+					<a class="navigation-link" href="http://twitter.com/will3942">Twitter</a>
+					<a class="navigation-link" href="http://github.com/will3942">GitHub</a>
+					<a class="navigation-link" href="/resume.pdf">Resumé</a>
+				</div>
+				<div id="header-rule"></div>
+			</div>
+		</div>
+		<div id="container">
+			{{#posts}}
+			<div class="post">
+				<div class="post-header">
+					<h1 class="post-title"><a href="/{{slug}}">{{title}}</a></h1>
+					<h2 class="post-date">{{date}}</h2>
+					<div class="post-rule"></div>
+				</div>
+				<div class="post-content">
+					<p>{{description}}</p>
+				</div>
+			</div>
+			{{/posts}}
+		</div>
+	  <script>
+	    !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+	    arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+	    d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+	    insertBefore(d,q)}(window,document,'script','_gs');
+
+	    _gs('GSN-976668-V');
+	  </script>
+	</body>
+</html>
