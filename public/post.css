@@ -153,6 +153,11 @@ a:hover {
 .post-content img {
 	margin-top: 10px;
 	display: block;
+	max-width: 100%;
+}
+
+.post-img {
+	width: 100%;
 }
 
 code {
