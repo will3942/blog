@@ -1,49 +1,93 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Will Evans</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Not just another WordPress site." />
-		<meta name="keywords" content="will evans, willevans, will, evans" />
-		<meta name="author" content="metatags generator">
-		<meta name="robots" content="index, follow">
-		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="/main.css">
-	</head>
-	<body>
-		<div id="header-container">
-			<div id="header">
-				<h1><a href="/">Will Evans</a></h1>
-				<h2>Not just another WordPress site.</h2>
-				<div id="navigation">
-					<a class="navigation-link" href="http://twitter.com/will3942">Twitter</a>
-					<a class="navigation-link" href="http://github.com/will3942">GitHub</a>
-					<a class="navigation-link" href="/resume.pdf">Resumé</a>
-				</div>
-				<div id="header-rule"></div>
-			</div>
-		</div>
-		<div id="container">
-			{{#posts}}
-			<div class="post">
-				<div class="post-header">
-					<h1 class="post-title"><a href="/{{slug}}">{{title}}</a></h1>
-					<h2 class="post-date">{{date}}</h2>
-					<div class="post-rule"></div>
-				</div>
-				<div class="post-content">
-					{{description}}
-				</div>
-			</div>
-			{{/posts}}
-		</div>
-	  <script>
-	    !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-	    arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-	    d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-	    insertBefore(d,q)}(window,document,'script','_gs');
+<html lang="en">
+<head>
+  <title>Will Evans</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Not just another WordPress site." />
+  <meta name="keywords" content="will evans, willevans, will, evans" />
+  <meta name="author" content="metatags generator">
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/main.css">
+</head>
+<body>
+  <div id="layout">
+    <a href="#menu" id="menuLink" class="menu-link">
+        <span></span>
+    </a>
 
-	    _gs('GSN-976668-V');
-	  </script>
-	</body>
+    <div id="menu">
+      <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading" href="/">Will Evans</a>
+
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="http://twitter.com/will3942">Twitter</a></li>
+          <li><a href="http://github.com/will3942">GitHub</a></li>
+          <li><a href="/resume.pdf">Résumé</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="main">
+      {{#posts}}
+
+        <div class="header">
+          <a href="/{{slug}}"><h1>{{title}}</h1></a>
+          <h2>{{date}}</h2>
+        </div>
+
+        <div class="content">
+          {{description}}
+        </div>
+      {{/posts}}
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+	  (function (window, document) {
+
+	    var layout   = document.getElementById('layout'),
+	        menu     = document.getElementById('menu'),
+	        menuLink = document.getElementById('menuLink');
+
+	    function toggleClass(element, className) {
+	        var classes = element.className.split(/\s+/),
+	            length = classes.length,
+	            i = 0;
+
+	        for(; i < length; i++) {
+	          if (classes[i] === className) {
+	            classes.splice(i, 1);
+	            break;
+	          }
+	        }
+	        // The className is not found
+	        if (length === classes.length) {
+	            classes.push(className);
+	        }
+
+	        element.className = classes.join(' ');
+	    }
+
+	    menuLink.onclick = function (e) {
+	        var active = 'active';
+
+	        e.preventDefault();
+	        toggleClass(layout, active);
+	        toggleClass(menu, active);
+	        toggleClass(menuLink, active);
+	    };
+
+		}(this, this.document));
+	</script>
+  <script>
+    !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
+    arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
+    d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
+    insertBefore(d,q)}(window,document,'script','_gs');
+
+    _gs('GSN-976668-V');
+  </script>
+</body>
 </html>
