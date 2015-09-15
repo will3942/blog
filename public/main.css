@@ -208,6 +208,31 @@ img {
         left: 150px;
     }
 }
+pre {
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+}
+
+code {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    overflow: auto;
+    word-wrap: normal;
+    background: #eee;
+}
+
+.content pre code {
+    display: block;
+    padding: 0.5em 1em;
+    border: 1px solid #bebab0;
+}
 /*!
 Pure v0.3.0
 Copyright 2013 Yahoo! Inc. All rights reserved.
