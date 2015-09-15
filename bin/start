@@ -3,6 +3,7 @@ var app = require('../app');
 var fs = require('fs');
 var marked = require('marked');
 var hbs = require('handlebars');
+var striptags = require('striptags');
 var Entities = require('html-entities').AllHtmlEntities;
 var entities = new Entities();
 
@@ -27,6 +28,7 @@ fs.readdir(__dirname + '/../posts/',function(err,files){
   	post.title = lines[0].trim();
   	post.date = lines[1].trim();
   	post.description = marked(lines[2].trim() + '..');
+  	post.metaDescription = striptags(post.description);
   	post.content = marked(lines.slice(2, lines.length).join('\n'));
   	posts.push(post);
 
