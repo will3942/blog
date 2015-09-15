@@ -78,7 +78,7 @@ bootdisk: ide0
 cpu: core2duo
 ide0: main:105/vm-105-disk-2.qcow2,format=qcow2,cache=writeback,backup=no,size=200G
 memory: 4096
-name: build-osx-yosemite-1.sys.cuvva.co
+name: build-osx-yosemite-1.will3942.com
 net0: e1000-82545em=6A:8F:EE:FC:C6:7B,bridge=vmbr1
 ostype: other
 tablet: 0
