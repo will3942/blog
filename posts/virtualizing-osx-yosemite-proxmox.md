@@ -89,7 +89,7 @@ You should replace `INSERT OSK KEY HERE` with the OSK key you retrieved earlier,
 
 # Fixing pve-q35.cfg
 
-You should edit `/usr/share/qemu-server/pve-q35.cfg` and comment out the sections from "ehci" to "uhci-3" (inclusive) so it looks something like this:
+You should edit `/usr/share/qemu-server/pve-q35.cfg` and comment out the sections from "ehci" to "uhci-3" (inclusive) and then also "pci.0" and "pci.1" so it looks something like this:
 
 <div class="post-img"><img src="/pve-q35.png"></div>
 
