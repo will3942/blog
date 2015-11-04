@@ -1,4 +1,4 @@
-Fuck Internet Censorship
+Seamless Tor tunneling over WiFi with Raspberry Pi
 4/11/2015
 How to *avoid* Internet censorship with an always-on WiFi Access Point proxying traffic through the Tor network using a Raspberry Pi.
 
