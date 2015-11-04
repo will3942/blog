@@ -1,6 +1,6 @@
 Seamless Tor tunneling over WiFi with Raspberry Pi
 4/11/2015
-How to *avoid* Internet censorship with an always-on WiFi Access Point proxying traffic through the Tor network using a Raspberry Pi.
+How to *avoid* Internet censorship and spying with an always-on WiFi Access Point proxying traffic through the Tor network using a Raspberry Pi.
 
 # The Problem
 [Today](http://www.bbc.co.uk/news/uk-politics-34715872), Theresa May has said that the UK government will start recording all the sites that you visit on the internet and they will be accessible without a warrant. This is not ok. This is a complete invasion of privacy. This violates our basic human rights.
