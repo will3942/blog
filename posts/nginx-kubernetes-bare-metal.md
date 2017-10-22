@@ -42,25 +42,49 @@ Now we've allowed services to run on a NodePort of 80 we can deploy the Nginx se
 
 Execute the following commands, this will setup a new namespace `ingress-nginx` and setup the Nginx default config and a default HTTP backend in this namespace.
 
-`curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/namespace.yaml | kubectl apply -f -`
+```
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/namespace.yaml \
+| kubectl apply -f -
+```
 
-`curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/default-backend.yaml | kubectl apply -f -`
+```
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/default-backend.yaml \
+| kubectl apply -f -
+```
 
-`curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/configmap.yaml | kubectl apply -f -`
+```
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/configmap.yaml \
+| kubectl apply -f -
+```
 
-`curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/tcp-services-configmap.yaml | kubectl apply -f -`
+```
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/tcp-services-configmap.yaml \
+| kubectl apply -f -
+```
 
-`curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/udp-services-configmap.yaml | kubectl apply -f -`
+```
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/udp-services-configmap.yaml \
+| kubectl apply -f -
+```
 
 If you have RBAC setup on your cluster (most versions of Kubernetes >=1.7 do) then execute the following commands to deploy the Nginx instance:
 
-`curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/rbac.yaml | kubectl apply -f -`
+```
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/rbac.yaml \
+| kubectl apply -f -
+```
 
-`curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/with-rbac.yaml | kubectl apply -f -`
+```
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/with-rbac.yaml \
+| kubectl apply -f -
+```
 
 For non-RBAC execute the following command:
 
-`curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/without-rbac.yaml | kubectl apply -f -`
+```
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/without-rbac.yaml \
+| kubectl apply -f -
+```
 
 # Deploying the Nginx service
 
